@@ -1,9 +1,9 @@
 {
 	"required": true,
-	"package": "net.funkpla.template.mixin.client",
+	"package": "net.funkpla.fortress_tweak.mixin",
 	"compatibilityLevel": "JAVA_17",
-	"client": [
-		"ExampleClientMixin"
+	"mixins": [
+		"NetherFortressStructureMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

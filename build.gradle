@@ -58,7 +58,7 @@ loom {
     splitEnvironmentSourceSets()
 
 	mods {
-		"template" {
+		"fortress-tweak" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}
@@ -132,7 +132,7 @@ publishMods {
 
 	curseforge {
 		projectId = ""
-		projectSlug = "template" // Required for discord webhook
+		projectSlug = "fortress-tweak" // Required for discord webhook
 		accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
 		minecraftVersions.add(project.minecraft_version)
 		javaVersions.add(JavaVersion.VERSION_17)
