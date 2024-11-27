@@ -11,20 +11,20 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 @Mixin(NetherFortressStructure.class)
 public abstract class NetherFortressStructureMixin extends Structure {
 
-	protected NetherFortressStructureMixin(StructureSettings settings) {
-		super(settings);
-	}
+    protected NetherFortressStructureMixin(StructureSettings settings) {
+        super(settings);
+    }
 
 
     @Redirect(
-			method = "generatePieces(Lnet/minecraft/world/level/levelgen/structure/pieces/StructurePiecesBuilder;Lnet/minecraft/world/level/levelgen/structure/Structure$GenerationContext;)V",
-			at = @At(
-					value = "INVOKE",
-					target = "Lnet/minecraft/world/level/levelgen/structure/pieces/StructurePiecesBuilder;moveInsideHeights(Lnet/minecraft/util/RandomSource;II)V"
-			)
+            method = "generatePieces(Lnet/minecraft/world/level/levelgen/structure/pieces/StructurePiecesBuilder;Lnet/minecraft/world/level/levelgen/structure/Structure$GenerationContext;)V",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/level/levelgen/structure/pieces/StructurePiecesBuilder;moveInsideHeights(Lnet/minecraft/util/RandomSource;II)V"
+            )
 
-	)
-	private static void fortress_tweak$modifyFortressLowerBound(StructurePiecesBuilder instance, RandomSource random, int i, int j){
-				instance.moveInsideHeights(random, i+32, j+32);
-	}
+    )
+    private static void fortress_tweak$modifyFortressLowerBound(StructurePiecesBuilder instance, RandomSource random, int i, int j) {
+        instance.moveInsideHeights(random, i + 32, j + 32);
+    }
 }
