@@ -12,7 +12,7 @@
 	},
 	"license": "MIT",
 	"icon": "assets/fortress_tweak/fortress.png",
-	"environment": "*",
+	"environment": "server",
 	"entrypoints": {
 	},
 	"mixins": [
