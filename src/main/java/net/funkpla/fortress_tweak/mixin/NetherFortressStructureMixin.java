@@ -1,5 +1,7 @@
 package net.funkpla.fortress_tweak.mixin;
 
+import me.shedaniel.autoconfig.AutoConfig;
+import net.funkpla.fortress_tweak.FortressTweakConfig;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
@@ -15,7 +17,6 @@ public abstract class NetherFortressStructureMixin extends Structure {
         super(settings);
     }
 
-
     @Redirect(
             method = "generatePieces(Lnet/minecraft/world/level/levelgen/structure/pieces/StructurePiecesBuilder;Lnet/minecraft/world/level/levelgen/structure/Structure$GenerationContext;)V",
             at = @At(
@@ -25,6 +26,8 @@ public abstract class NetherFortressStructureMixin extends Structure {
 
     )
     private static void fortress_tweak$modifyFortressLowerBound(StructurePiecesBuilder instance, RandomSource random, int i, int j) {
-        instance.moveInsideHeights(random, i + 32, j + 32);
+        FortressTweakConfig config = AutoConfig.getConfigHolder(FortressTweakConfig.class).getConfig();
+        int offset = config.fortressOffset;
+        instance.moveInsideHeights(random, i + offset, j + offset);
     }
 }
