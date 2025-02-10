@@ -13,5 +13,7 @@ public class FortressTweakConfig implements ConfigData {
     @ConfigEntry.BoundedDiscrete(min = -100, max = 100)
     public int fortressOffset = 48;
     @ConfigEntry.Category("Portal")
+    public boolean allowOnceLit;
+    @ConfigEntry.Category("Portal")
     public List<String> portalStructures = new ArrayList<>();
 }
