@@ -12,7 +12,7 @@ public class FortressTweakMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        LOGGER.info("Fuck you");
+        LOGGER.info("Nether Tweaks loaded.");
         AutoConfig.register(FortressTweakConfig.class, JanksonConfigSerializer::new);
     }
 }

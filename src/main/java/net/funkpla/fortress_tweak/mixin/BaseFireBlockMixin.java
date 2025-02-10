@@ -32,7 +32,6 @@ public abstract class BaseFireBlockMixin {
     )
     public void fortress_tweak$tweakOnPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston, CallbackInfo ci) {
         FortressTweakConfig config = AutoConfig.getConfigHolder(FortressTweakConfig.class).getConfig();
-        System.out.println("I LIVE");
         Optional<PortalShape> portalShape = PortalShape.findEmptyPortalShape(level, pos, Direction.Axis.X);
         if (portalShape.isPresent()) {
             boolean structurePresent = false;
