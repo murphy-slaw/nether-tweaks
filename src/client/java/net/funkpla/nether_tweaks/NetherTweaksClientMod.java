@@ -1,8 +1,8 @@
-package net.funkpla.fortress_tweak;
+package net.funkpla.nether_tweaks;
 
 import net.fabricmc.api.ClientModInitializer;
 
-public class FortressTweakClientMod implements ClientModInitializer {
+public class NetherTweaksClientMod implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
     }

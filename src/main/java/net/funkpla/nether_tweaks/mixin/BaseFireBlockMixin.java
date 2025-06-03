@@ -1,8 +1,8 @@
-package net.funkpla.fortress_tweak.mixin;
+package net.funkpla.nether_tweaks.mixin;
 
 import me.shedaniel.autoconfig.AutoConfig;
-import net.funkpla.fortress_tweak.FortressTweakConfig;
-import net.funkpla.fortress_tweak.PersistenceManager;
+import net.funkpla.nether_tweaks.NetherTweaksConfig;
+import net.funkpla.nether_tweaks.PersistenceManager;
 import net.minecraft.advancements.critereon.LocationPredicate;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -26,16 +26,13 @@ import java.util.Optional;
 @Mixin(BaseFireBlock.class)
 public abstract class BaseFireBlockMixin {
 
-    @Inject(
-            method = "onPlace",
-            at = @At("HEAD"),
-            cancellable = true
-    )
-    public void fortress_tweak$tweakOnPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston, CallbackInfo ci) {
-        FortressTweakConfig config = AutoConfig.getConfigHolder(FortressTweakConfig.class).getConfig();
+    @Inject(method = "onPlace", at = @At("HEAD"), cancellable = true)
+    public void fortress_tweak$tweakOnPlace(BlockState state, Level level, BlockPos pos, BlockState oldState,
+                                            boolean movedByPiston, CallbackInfo ci) {
+        NetherTweaksConfig config = AutoConfig.getConfigHolder(NetherTweaksConfig.class).getConfig();
         Optional<PortalShape> portalShape = PortalShape.findEmptyPortalShape(level, pos, Direction.Axis.X);
         if (portalShape.isPresent()) {
-            var serverState = PersistenceManager.getServerState(level.getServer());
+            PersistenceManager serverState = PersistenceManager.getServerState(level.getServer());
             boolean portalsAllowed = serverState.netherPortalLit && config.allowOnceLit;
             if (!portalsAllowed && level.dimension() == Level.OVERWORLD) {
                 Registry<Structure> reg = level.registryAccess().registry(Registries.STRUCTURE).get();
@@ -44,7 +41,8 @@ public abstract class BaseFireBlockMixin {
                     Optional<Structure> struct = reg.getOptional(loc);
                     if (struct.isPresent()) {
                         ResourceKey<Structure> key = reg.getResourceKey(struct.get()).get();
-                        if (LocationPredicate.inStructure(key).matches((ServerLevel) level, pos.getX(), pos.getY(), pos.getZ())) {
+                        if (LocationPredicate.inStructure(key).matches((ServerLevel) level, pos.getX(), pos.getY(),
+                                pos.getZ())) {
                             portalsAllowed = true;
                             break;
                         }

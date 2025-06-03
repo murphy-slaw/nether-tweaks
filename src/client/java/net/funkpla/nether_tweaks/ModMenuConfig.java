@@ -1,4 +1,4 @@
-package net.funkpla.fortress_tweak;
+package net.funkpla.nether_tweaks;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
@@ -12,7 +12,6 @@ public class ModMenuConfig implements ModMenuApi {
 
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        return parent -> AutoConfig.getConfigScreen(FortressTweakConfig.class, parent).get();
+        return parent -> AutoConfig.getConfigScreen(NetherTweaksConfig.class, parent).get();
     }
-
 }

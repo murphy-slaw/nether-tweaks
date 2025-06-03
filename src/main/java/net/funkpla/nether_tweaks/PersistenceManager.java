@@ -1,4 +1,4 @@
-package net.funkpla.fortress_tweak;
+package net.funkpla.nether_tweaks;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.MinecraftServer;
@@ -25,9 +25,7 @@ public class PersistenceManager extends SavedData {
 
     public static PersistenceManager getServerState(MinecraftServer server) {
         DimensionDataStorage dimensionDataStorage = server.getLevel(Level.OVERWORLD).getDataStorage();
-        return dimensionDataStorage.computeIfAbsent(
-                PersistenceManager::fromTag,
-                PersistenceManager::new,
-                FortressTweakMod.MOD_ID);
+        return dimensionDataStorage.computeIfAbsent(PersistenceManager::fromTag, PersistenceManager::new,
+                NetherTweaksMod.MOD_ID);
     }
 }

@@ -1,0 +1,8 @@
+{
+    "text.autoconfig.nether_tweaks.title": "Nether Tweaks",
+    "text.autoconfig.nether_tweaks.category.Fortress": "Nether Fortresses",
+    "text.autoconfig.nether_tweaks.category.Portal": "Nether Portals",
+    "text.autoconfig.nether_tweaks.option.portalStructures": "Portal-enabled Structures",
+    "text.autoconfig.nether_tweaks.option.allowOnceLit": "Remove restrictions after portal successfully lit?",
+    "text.autoconfig.nether_tweaks.option.fortressOffset": "Nether Fortress Y-offset"
+}

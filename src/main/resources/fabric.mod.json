@@ -1,39 +1,39 @@
 {
-  "schemaVersion": 1,
-  "id": "fortress-tweak",
-  "version": "${version}",
-  "name": "Fortress Tweak",
-  "description": "Adjust fortress placement to be relative to the nether sea level",
-  "authors": [
-    "murphy_slaw"
-  ],
-  "contact": {
-    "sources": "https://github.com/murphy-slaw/fortress-tweak"
-  },
-  "license": "MIT",
-  "icon": "assets/fortress_tweak/fortress.png",
-  "environment": "*",
-  "entrypoints": {
-    "main": [
-      "net.funkpla.fortress_tweak.FortressTweakMod"
+    "schemaVersion": 1,
+    "id": "nether-tweaks",
+    "version": "${version}",
+    "name": "Nether Tweaks",
+    "description": "Small adjustments to Nether Fortress and Nether Portal behavior",
+    "authors": [
+        "murphy_slaw"
     ],
-    "client": [
-      "net.funkpla.fortress_tweak.FortressTweakClientMod"
+    "contact": {
+        "sources": "https://github.com/murphy-slaw/nether-tweaks"
+    },
+    "license": "MIT",
+    "icon": "assets/nether_tweaks/fortress.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "net.funkpla.nether_tweaks.NetherTweaksMod"
+        ],
+        "client": [
+            "net.funkpla.nether_tweaks.NetherTweaksClientMod"
+        ],
+        "modmenu": [
+            "net.funkpla.nether_tweaks.ModMenuConfig"
+        ]
+    },
+    "mixins": [
+        "nether-tweaks.mixins.json"
     ],
-    "modmenu": [
-      "net.funkpla.fortress_tweak.ModMenuConfig"
-    ]
-  },
-  "mixins": [
-    "fortress-tweak.mixins.json"
-  ],
-  "depends": {
-    "fabricloader": ">=0.15.11",
-    "minecraft": "~1.20.1",
-    "java": ">=17",
-    "cloth-config": "*"
-  },
-  "suggests": {
-    "modmenu": "*"
-  }
+    "depends": {
+        "fabricloader": ">=0.15.11",
+        "minecraft": "~1.20.1",
+        "java": ">=17",
+        "cloth-config": "*"
+    },
+    "suggests": {
+        "modmenu": "*"
+    }
 }
